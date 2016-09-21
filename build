@@ -1,0 +1,61 @@
+#!/bin/bash
+
+OPENBOXDIR="/your-full-path/to-the-config/of/openbox"
+
+if [ $# -eq 0 ]; then
+	printf "No arguments supplied. This will default to building rc.xml\n"
+	read -r -p "Continue? [y/N] " RESP
+	printf "\n"
+
+	RESP=${RESP,,}
+
+	if [[ $RESP =~ ^(yes|y) ]]; then
+		RCNAME="rc"
+	else
+		printf "Cancelled operation.\n"
+		exit
+	fi
+else
+	RCNAME=$1
+fi
+
+SOURCE="${BASH_SOURCE[0]}"
+
+while [ -h "$SOURCE" ]; do
+	DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+	SOURCE="$(readlink "$SOURCE")"
+	[[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
+done
+
+DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )/config"
+
+if [[ $RCNAME == *.xml ]]; then
+	RC=$OPENBOXDIR/$RCNAME
+else
+	RC=$OPENBOXDIR/$RCNAME.xml
+fi
+
+if [ -f $RC ]; then
+	MODDATE=$(stat -c %Y $RC)
+	MODDATE=${MODDATE%% *}
+
+	mv $RC $RC.backup.$MODDATE
+	printf "Moved old rc to $RC.backup.$MODDATE\n"
+fi
+
+printf '<?xml version="1.0" encoding="UTF-8"?>\n\t<openbox_config\n\t\txmlns="http://openbox.org/3.4/rc"\n\t\txmlns:xi="http://www.w3.org/2001/XInclude">\n' > $RC
+
+for file in $DIR/*; do
+	if [[ ${file##*/} == [0-9]* ]]; then
+		printf "Parsing %s\n" ${file##*/}
+		printf "\n" >> $RC
+		cat $DIR/${file##*/} >> $RC
+	fi
+done
+
+printf '\t</openbox_config>\n' >> $RC
+
+printf "Restarting openbox...\n"
+openbox --reconfigure
+
+exit
