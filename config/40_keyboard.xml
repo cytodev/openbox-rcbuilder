@@ -1,0 +1,13 @@
+<keyboard>
+    <chainQuitKey>C-g</chainQuitKey>
+
+    <!-- Example keybinding
+      -- This keybinding switches to the desktop to the left on ctrl+alt+left
+        -->
+    <keybind key="C-A-Left">
+        <action name="DesktopLeft">
+            <dialog>no</dialog>
+            <wrap>no</wrap>
+        </action>
+    </keybind>
+</keyboard>

@@ -1,0 +1,75 @@
+<!-- this is an example with comments through out. use these to make your own
+     rules, but without the comments of course.
+
+the name or the class can be set, or both. this is used to match windows when
+they appear. role can optionally be set as well, to further restrict your
+matches. the name, class, and role use simple wildcard matching such as those
+used by a shell. you can use * to match any characters and ? to match any single
+character. when multiple rules match a window, they will all be applied, in the
+order that they appear in this list each element can be left out or set to
+'default' to specify to not change that attribute of the window.
+
+<application name="first element of window's WM_CLASS property (see xprop)"
+             class="second element of window's WM_CLASS property (see xprop)"
+             role="the window's WM_WINDOW_ROLE property (see xprop)">
+
+enable or disable window decorations
+<decor>yes</decor>
+
+make the window shaded when it appears, or not
+<shade>no</shade>
+
+the position is only used if both an x and y coordinate are provided (and not
+set to 'default').
+<position>
+    a number like 50, or 'center' to center on screen. use a negative number to
+    start from the right (or bottom for <y>), ie -50 is 50 pixels from the right
+    edge (or bottom).
+    <x>center</x>
+    <y>200</y>
+    specifies the monitor in a xinerama setup.
+    1 is the first head, or 'mouse' for wherever the mouse is
+    <monitor>1</monitor>
+</position>
+
+if the window should try be given focus when it appears. if this is set to yes
+it doesn't guarantee the window will be given focus. some restrictions may
+apply, but Openbox will try to.
+<focus>yes</focus>
+
+    1 is the first desktop, 'all' for all desktops.
+    <desktop>1</desktop>
+
+    'above', 'normal', or 'below'.
+    <layer>normal</layer>
+
+    make the window iconified when it appears, or not.
+    <iconic>no</iconic>
+
+    asks to not be shown in pagers.
+    <skip_pager>no</skip_pager>
+
+    asks to not be shown in taskbars. window cycling actions will also skip
+    past such windows.
+    <skip_taskbar>no</skip_taskbar>
+
+    make the window in fullscreen mode when it appears.
+    <fullscreen>yes</fullscreen>
+
+    'Horizontal', 'Vertical' or boolean (yes/no).
+    <maximized>true</maximized>
+</application>
+
+     end of the example.
+  -->
+<applications>
+
+    <application class="*" type="normal">
+        <focus>yes</focus>
+        <position force="yes">
+            <x>center</x>
+            <y>center</y>
+        </position>
+    </application>
+
+</applications>

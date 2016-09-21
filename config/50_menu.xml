@@ -1,0 +1,30 @@
+<!-- You can specify more than one menu file in here and they are all loaded,
+     just don't make menu ids clash or, well, it'll be kind of pointless...
+  -->
+<menu>
+    <!-- default menu file (or custom one in $HOME/.config/openbox/).
+      -->
+    <file></file>
+
+    <!-- if a press-release lasts longer than this setting (in milliseconds),
+         the menu is hidden again.
+      -->
+    <hideDelay></hideDelay>
+
+    <!-- center submenus vertically about the parent entry.
+      -->
+    <middle></middle>
+
+    <!-- this one is easy, time to delay before showing a submenu after hovering
+         over the parent entry.
+      -->
+    <submenuShowDelay></submenuShowDelay>
+
+    <!-- controls if icons appear in the client-list-(combined-)menu.
+      -->
+    <applicationIcons></applicationIcons>
+
+    <!-- show the manage desktops section in the client-list-(combined-)menu.
+      -->
+    <manageDesktops></manageDesktops>
+</menu>

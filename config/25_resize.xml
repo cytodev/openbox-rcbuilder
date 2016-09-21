@@ -1,0 +1,20 @@
+<resize>
+    <drawContents></drawContents>
+
+    <!-- 'Always', 'Never', or 'Nonpixel' (xterms and such).
+      -->
+    <popupShow></popupShow>
+
+    <!-- 'Center', 'Top', or 'Fixed'.
+      -->
+    <popupPosition></popupPosition>
+
+    <!-- these are used if popupPosition is set to 'Fixed'.
+         positive number for distance from left edge, negative number for
+         distance from right edge, or 'Center'.
+      -->
+    <popupFixedPosition>
+        <x></x>
+        <y></y>
+    </popupFixedPosition>
+</resize>

@@ -1,0 +1,10 @@
+<!-- You can reserve a portion of your screen where windows will not cover when
+     they are maximized, or when they are initially placed. Many programs
+     reserve space automatically, but you can use this in other cases.
+  -->
+<margins>
+    <top></top>
+    <right></right>
+    <bottom></bottom>
+    <left></left>
+</margins>

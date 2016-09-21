@@ -1,0 +1,29 @@
+<dock>
+    <!-- (Top|Bottom)(Left|Right|)|Top|Bottom|Left|Right|Floating
+      -->
+    <position></position>
+    <floatingX></floatingX>
+    <floatingY></floatingY>
+    <noStrut></noStrut>
+
+    <!-- 'Above', 'Normal', or 'Below'.
+      -->
+    <stacking></stacking>
+
+    <!-- 'Vertical' or 'Horizontal'.
+      -->
+    <direction></direction>
+    <autoHide></autoHide>
+
+    <!-- in milliseconds (1000 = 1 second).
+      -->
+    <hideDelay></hideDelay>
+
+    <!-- in milliseconds (1000 = 1 second).
+      -->
+    <showDelay></showDelay>
+
+    <!-- 'Left', 'Middle', 'Right'
+      -->
+    <moveButton></moveButton>
+</dock>
